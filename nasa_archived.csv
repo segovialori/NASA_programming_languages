@@ -1,0 +1,487 @@
+,repo,language,readme_contents
+0,nasa/nasawds-site,HTML,"This repo is no longer maintained. Documentation for the latest version of nasawds can be found [here](https://github.com/bruffridge/nasawds).
+
+# NASA Web Design System documentation
+
+This repo includes code and documentation for the NASA Web Design System website. For information on the Design System (components) themselves, please visit [nasawds](https://github.com/nasa/nasawds).
+
+Note that this README includes steps to pull the latest version of the Design System into your local instance of the documentation.
+
+## Running locally
+
+The NASA Web Design System documentation is built using Jekyll for the file framework, gulp for task management, and the node module for the Design System.
+
+### Before you start
+
+You will need to have the following installed on your machine before following the commands below:
+
+1. Ruby v2.2.2+, [Installation guides](https://www.ruby-lang.org/en/documentation/installation/)
+1. Node v4.2.3+, [Installation guides](https://nodejs.org/en/download/)
+1. Bundler v1.12.3+, [Installation guides](http://bundler.io/v1.13/guides/using_bundler_in_application.html#getting-started---installing-bundler-and-bundle-init)
+1. Chrome v59 or higher (v60 if on Windows)
+
+### Building the documentation with gulp
+
+Some parts of the documentation are built using [gulp](http://gulpjs.com/).
+
+To work on the site, switch to your local copy of the repository in terminal then run the following command to install project dependencies:
+
+```sh
+npm install
+```
+
+Now that all of your dependencies are installed, you can run your local server by running the following command:
+
+```sh
+npm start
+```
+
+Go to `127.0.0.1:4000` in your browser — you should be viewing a local instance of [nasawds-site](https://nasa.github.io/nasawds-site).
+
+Here are a few other utility commands you may find useful:
+
+- `npm run clean`: Cleans out copied-over dependency assets.
+
+- `npm run lint`: Runs `eslint` and `sass-lint` against JavaScript and Sass files.
+
+- `npm test`: Runs all tests and linters.
+
+- `npm run watch`: Runs a series of commands that watches for any changes in both the Design System node module and the root level asset folders in this repo.
+
+### Using the latest version of the `nasawds` package
+- `npm start -- --incremental`: Runs your local server with incremental regeneration enabled to greatly improve build time. Use instead of `npm start`.
+
+Sometimes you will want to use the latest version of the `nasawds` repo. Follow these steps to do so:
+
+1. Clone the latest version of the [`nasawds` repo](https://github.com/nasa/nasawds/tree/develop).
+1. Run `npm install` to install the dependencies required for the package in the `nasawds` directory.
+1. Run `npm run build` to create the built version of the Design System in the `nasawds` directory.
+1. Run `npm link` in the _root level_ of the `nasawds` directory on your local machine.
+1. Run `npm link nasawds` in the _root level_ of the `nasawds-site` directory on your local machine.
+1. Set the `FRACTAL_BASE_URL` env var to the running fractal instance for `nasawds`. In your terminal window in the `nasawds-site` directory, enter `export FRACTAL_BASE_URL=""http://127.0.0.1:3000""`.
+1. Run `npm run watch` in both project directories to have changes automatically built and compiled on changes to any asset files.
+1. In a new terminal window, run `npm start` in the `nasawds-site` directory to start the Jekyll server locally.
+
+You are now using the latest version of the Design System via your cloned version on your local machine. To stop using this version, type `npm unlink nasawds` from the _root level_ of the `nasawds-site` directory.
+
+### Fractal components
+
+The Design System uses the [fractal design system builder](http://fractal.build/) to organize and document the components. This documentation site pulls the components from fractal to showcase them on the site. This is done with a custom `fractal_component` Jekyll tag, which takes the full name of the fractal component as a parameter.
+
+### Dynamic content
+
+Some of the content on the documentation site is dynamically fetched from
+GitHub. If you want to ensure that its API won't rate-limit you, you
+may want to
+[create an access token](https://github.com/blog/1509-personal-api-tokens)
+and assign it to your `GITHUB_ACCESS_TOKEN` environment variable.
+
+The dynamic content is stored in the `.jekyll_get_cache` directory and
+won't be re-fetched once it's cached there. However, this means that your
+data can get stale over time, so if you want to ensure that your site
+is using the very latest data, you'll want to clear the cache by running:
+
+```
+rm -rf .jekyll_get_cache
+```
+"
+1,nasa/nasawds-old,JavaScript,"This repo is no longer maintained, it is replaced by [nasawds](https://github.com/bruffridge/nasawds)
+
+# NASA Web Design System
+[![CircleCI Build Status](https://circleci.com/gh/nasa/nasawds/tree/develop.svg?style=shield)](https://circleci.com/gh/nasa/nasawds/tree/develop) [![Test Coverage](https://codeclimate.com/github/bruffridge/nasawds/badges/coverage.svg)](https://codeclimate.com/github/bruffridge/nasawds/coverage)
+
+The [NASA Web Design System](https://nasa.github.io/nasawds-site) includes a library of open source UI components and a visual style guide for NASA websites. It is a fork of the [U.S. Web Design System](https://github.com/uswds/uswds).
+
+This repository is for the Design System itself. NASA maintains [another repository for the documentation and website](https://github.com/nasa/nasawds-site). To see the Design System and documentation on the web, visit [https://nasa.github.io/nasawds-site](https://nasa.github.io/nasawds-site).
+
+## Contributing to the code base
+
+For complete instructions on how to contribute code, please read [CONTRIBUTING.md](CONTRIBUTING.md). These instructions also include guidance on how to set up your own copy of the Design System style guide website for development.
+"
+2,nasa/data.nasa.gov,CSS,"DATA.NASA.GOV
+=================
+THIS IS OUT OF DATE AND NO LONGER USED: PLEASE GO TO https://github.com/nasa/data-nasa-gov-frontpage
+=================
+
+
+### OLD TEXT THAT IS NO LONGER ACCURATE
+This is the source code for the WordPress theme that powers data.nasa.gov.
+
+We'll be the first to admit it's buggy, old, and not up to modern standards. A long term plan is to move data, code, and open .nasa.gov all to mobile-friendly responsive themes.
+
+If there is an issue that you find with code.nasa.gov, please open a ticket here. We really appreciate it!
+"
+3,nasa/cumulus-integration-tests,JavaScript,"#  Cumulus Integration Test Project [DEPRECATED]
+
+**Note:** This repository is no longer maintained. The content of this repository is moved [here](https://github.com/cumulus-nasa/cumulus/tree/master/example).
+
+## What is Cumulus?
+
+Cumulus is a cloud-based data ingest, archive, distribution and management
+prototype for NASA's future Earth science data streams.
+
+Read the [Cumulus Documentation](https://cumulus-nasa.github.io/)
+
+## Installation
+
+```bash
+nvm use
+npm install
+```
+
+## Running tests locally
+
+These tests run against AWS, so a Cumulus deployment is needed. Set up the deployment using the configurations in this repository. Deployment instructions are located [here](https://cumulus-nasa.github.io/docs/deployment.html). The dashboard is not needed for these tests.
+
+### How to configure your test stack
+
+Your default AWS credentials should be the same credentials used for the deployment.
+
+To use a different stack name, update `app/config.yml`, `iam/config.yml` and `deployer/config.yml`.
+
+When tests run, by default tests will use the configuration defined in `spec/config.yml` to try and execute a workflow. These variables are required for tests to run on CircleCI.
+
+Configuration can be overriden in your own `spec/config.override.yml`. If you are getting setup for the first time:
+
+```
+cp spec/config.yml spec/config.override.yml
+```
+
+And then edit `spec/config.override.yml`.
+
+Using an override file is required if using a stack other than the `test-cumulus` stack in the `cumulus-sndbx` AWS account. If you want to switch back to the default `spec/config.yml` file, you can specify `USE_DEFAULT_CONFIG=true` when running tests. E.g.:
+
+```
+USE_DEFAULT_CONFIG=true AWS_ACCOUNT_ID=<cumulus-sndbx-account-id> jasmine spec/ingestGranule/IngestGranuleSuccessSpec.js
+```
+
+NOTE: For this to work you need your default credentials to be credentials for the `cumulus-sndbx` AWS account.
+
+### Additional deployment steps
+
+An S3 Access lambda is needed in the us-west-1 region to run the tests. To initially create the lambda, run:
+
+```
+aws lambda create-function --region us-west-1  --function-name <STACK>-integration-S3AccessTest --zip-file fileb://app/build/cloudformation/<ZIP>-S3AccessTest.zip  --role arn:aws:iam::<AWS_ACCOUNT_ID>:role/<STACK>-integration-lambda-processing  --handler index.handler --runtime nodejs6.10 --profile ngap-sandbox
+```
+
+Replace <AWS_ACCOUNT_ID> with your accound Id, <STACK> with your stack name, and the zip file <ZIP> can be found in app/build/cloudformation/ following a deployment. The zip file does not matter, but you need something there. 
+
+After the initial creation of this lambda, you can update it by running:
+
+```
+kes lambda S3AccessTest deploy --kes-folder app --template node_modules/@cumulus/deployment/app --deployment <deployment> --region us-west-1
+```
+
+This command will update the lambda with the latest lambda code.
+
+### Access to test data
+
+To access test data in `s3://cumulus-data-shared`, which is required by all specs except helloWorld, the lambda processing role for your deployment must have access to this bucket. This can be done by redeploying your IAM stack using the cloudformation template in the `iam/` directory. This IAM deployment creates a reference to `SharedBucketName` as `cumulus-data-shared` and adds `cumulus-data-shared` as part of the access policy for `LambdaProcessingRole`.
+
+### Run all tests
+
+Tests are written and run with [jasmine](https://jasmine.github.io/setup/nodejs.html).
+
+To run all of the tests, run `npm test` in the top level of the repository.
+
+When running tests locally, include the `AWS_ACCOUNT_ID` of your deployment.
+
+Your AWS Account ID is a 12-digit number that is a part of any ARN (Amazon Resource Name) for your AWS account. It can also be discovered on your AWS [My Account](https://console.aws.amazon.com/billing/home?#/account) page.
+
+```bash
+AWS_ACCOUNT_ID=000000000000 npm test
+```
+
+### Run tests for an individual test file
+
+To run an individual test file, include a path to the spec file, i.e. `npm test spec/helloWorld/HelloWorldSuccessSpec.js`.
+
+## Adding tests
+
+### Adding tests for an existing workflow
+
+Workflow tests are located in the `/spec/<workflow-name>` folder. Any tests and supporting JSON files can go in there. 
+
+### Adding a new test workflow
+
+The workflow should be configured as it would be for a normal Cumulus deployment in `workflows.yml`. It must be deployed to the current deployment if testing locally.
+
+A new folder should be added in the `/spec` folder for the workflow and the tests should go into that folder with the input JSON files. 
+
+# CircleCI
+This is how our integration tests on circleci install and use cumulus packages:
+- If a package exists on npm, the source code of the packages is installed from npm
+- if a package does not exists on npm yet, circleci installs it from the Cumulus repo
+- by default the packages are installed from the `master` branch of the Cumulus repo
+- You can specify the branch of the cumulus repo by:
+  - setting `CUMULUS_BRANCH` environment variable on circleci
+  - adding the `.cumulus_branch` file on the root of the integration repo and specifying the branch name
+  - `CUMULUS_BRANCH` takes precedent over `.cumulus_branch` file name
+
+## Using latest Cumulus Source code for local tests
+By default, the integration tests use latests Cumulus packages published to the NPM. To use the packages from the Cumulus repository, do the following:
+- Make sure cumulus repo is cloned relative to the integration repo. We assume the cumulus repo is cloned to `../cumulus`
+- Install all the dependencies in the cumulus repo by running `yarn` and `yarn bootstrap-no-build` in the cumulus folder
+- Run `./bin/prepare` command in this folder
+- deploy aws by running the kes command (as explained above)
+- run the tests
+
+## How to make changes to the cumulus repo that require changes to the cumulus-integration-tests repo
+- Create a branch on the `cumulus` repo
+- Make and commit your changes in the branch on the `cumulus` repo
+- Push the branch to the `cumulus` repo
+- Create a new branch from `master` in the `cumulus-integration-tests` repo
+- Update `.cumulus_branch` and point it at your branch on the `cumulus` repo
+- Update the package version in `package.json` to the version of the next release (if you don't know what the next version is going to be contact the Cumulus scrum master)
+- To test locally, run `./bin/prepare`, deploy to AWS, and follow the [Run all tests] section in this README
+- To test on CircleCI, push your changes to github and check CircleCI
+
+## Forcing CircleCI to use packages from cumulus core
+CircleCI will uses packages from NPM to run the integration tests. If you want to force the CI to use packages from the cumulus repo, do the following:
+- Update @cumulus packages version to in `package.json` to a version not released yet
+- If you need to get the source code from a branch of Cumulus other than master, set environment variable `CUMULUS_BRANCH`
+
+"
+4,nasa/cumulus-docs,JavaScript,"# Cumulus Documentation
+
+**Note:** This Repository is deprecated. The documentation is moved to the main [Cumulus repo](https://github.com/nasa/cumulus/tree/master/docs)
+
+- [HTML Documentation](https://cumulus-nasa.github.io/)
+- [Markdown Documentation](docs)
+
+## Local Installation
+
+     $ npm install
+
+## Local Build and Serve
+
+     $ npm run serve
+
+## Add a new page
+Add a `.md` file to `docs` folder and then a new item to `docs/SUMMARY.md`.
+
+## Add a new task
+The tasks list in docs/tasks.md is generated from the list of task package names in tasks.json. Do not edit the docs/tasks.md file directly. Instead, add the package name to tasks.json.
+
+[Read more about adding a new task.](adding-a-task.md)
+
+## Editing the tasks.md header or template
+
+Look at the `bin/build-tasks-doc.js` and `bin/tasks-header.md` files to edit the output of the tasks build script.
+
+## Deployment
+The `develop` branch is automatically built and deployed to master. The `master` branch is served by Github Pages. Do not make edits to the `master` branch.
+
+## Warning
+
+Do NOT merge `master` branch to any other branch. `master` branch is auto generated and does not follow the same git history.
+"
+5,nasa/OpenVSP,C++,"               Build and Installation Instructions for OpenVSP
+
+
+INTRODUCTION
+
+  OpenVSP is a parametric aircraft geometry tool.  OpenVSP allows the
+  user to create a 3D model of an aircraft defined by common engineering
+  parameters.  This model can be processed into formats suitable for
+  engineering analysis.
+
+  The predecessors to OpenVSP have been developed by JR Gloudemans and
+  others for NASA since the early 1990's.  In January 2012, OpenVSP was
+  released as an open source project under the NOSA 1.3 license.
+
+LICENSE
+
+  OpenVSP is available under the terms of the NASA Open Source Agreement
+  (NOSA) version 1.3.  The complete terms of the license are specified
+  in the LICENSE file.
+
+DEPENDENCIES
+
+  -OpenVSP relies on a variety of libraries and code made available by
+   other authors.  These libraries are not included with VSP and must
+   be obtained in order to build OpenVSP.
+
+  -CMake (www.cmake.org) Cross-platform build system.  CMake generates
+   platform-native build files which control compilation of OpenVSP.
+   CMake is available as a standard package on most Linux systems and
+   binary installers are available for many other platforms including
+   Windows and Mac OS X.
+
+  -OpenGL (www.opengl.org) 3D graphics library.  OpenGL should be 
+   available on any platform capable of displaying 3D graphics.  The 
+   OpenGL development tools must be installed on your computer to build
+   OpenVSP.
+
+  -glext.h (www.opengl.org/registry) Extension header for OpenGL. This
+   header provides access to OpenGL extensions which are not a part
+   of the core standard.  A copy of this header is included for systems
+   which do not provide it.
+
+  -FLTK (www.fltk.org) Cross-platform windowing library.  FLTK should 
+   be available as a standard package on most Linux systems and can
+   be installed from source on Windows and Mac OS X according to the
+   FLTK instructions.
+
+  -Libxml2 (www.xmlsoft.org) XML parser and toolkit.  Libxml2 most
+   likely comes pre-installed with most Linux distributions and 
+   Mac OS X systems.  Windows users must download the source and
+   build this library following the Libxml2 instructions.
+
+  -libjpeg (www.ijg.org) JPEG compression library.  Like Libxml2,
+   libjpeg is likely to be pre-installed with most Linux distributions
+   and Mac OS X systems.  Windows users must download the source
+   and build this library following the libjpeg instructions.
+
+  -OpenNURBS (www.opennurbs.org) Rhino 3DM file I/O library.  Download
+   the C++ toolkit from the OpenNURBS web site and extract the files
+   into the 'openvsp/src' directory creating the directory
+   'openvsp/src/opennurbs'.  OpenNURBS is built according to the
+   instructions that come with it.
+
+  -Triangle by Jonathan Shewchuk (www.cs.cmu.edu/~quake/triangle.html)
+   2D Delaunay triangulator.  This routine has been included in
+   this distribution.
+
+  -triInt by Tomas Moller (jgt.akpeters.com/papers/Moller97) Fast
+   triangle-triangle intersection test.  This code comes from two
+   sources.  The routines are included in this distribution.
+
+     jgt.akpeters.com/papers/Moller97/tritri.html
+     jgt.akpeters.com/papers/MollerTrumbore97/code.html
+
+  -glFont2 by Brad Fish (students.cs.byu.edu/~bfish/glfont2.php)
+   2D OpenGL font tool.  glFont2 has been included in this source
+   distribution.
+
+  -trackball Virtual trackball code for intuitive 3D rotations.
+   Gavin Bell's trackball code is included in an example program
+   distributed with the GLUT library which accompanies OpenGL.
+   If the OpenGL development files are installed on your system,
+   then trackball may be included.  Otherwise, the source and
+   header files are available from the following URLs:
+
+     www.opengl.org/resources/code/samples/glut_examples/
+      examples/trackball.c
+     www.opengl.org/resources/code/samples/glut_examples/
+      examples/trackball.h
+
+   Place 'trackball.c' and 'trackball.h' in the 'openvsp/src/vsp'
+   directory.
+
+BUILD INSTRUCTIONS
+
+  -Linux / Mac OS X
+
+   All of the supporting libraries and code described above in
+   DEPENDENCIES must be properly installed.
+
+   The OpenNURBS library must be compiled before OpenVSP can be
+   built.  Change to the 'openvsp/src/opennurbs' directory and
+   type 'make'.
+
+   Next, CMake is used to construct the build files.  CMake
+   supports out-of-tree builds which keep the source tree free
+   of generated files.  Create a build directory to contain the
+   generated files, say 'openvsp/build'.  Then, change to the
+   build directory and run CMake - passing a relative path to
+   'openvsp/src', say 'cmake ../src'.
+
+   CMake will search for Libxml2, libjpeg, and FLTK in their
+   default installation locations.  If CMake does not find the
+   libraries, then edit the '/openvsp/src/CMakeLists.txt' file
+   and modify the 'CMAKE_PREFIX_PATH' list of directories to
+   include the locations of the installed libraries.
+
+   If Libxml2, libjpeg, or FLTK are not installed on the
+   system and root/administrator access is not available to
+   install the libraries, the libraries can be installed in a
+   non-standard location in the user's directory.  In that
+   situation, the 'CMAKE_PREFIX_PATH' list of directories
+   should be modified to include the locations of the installed
+   libraries.
+
+   When CMake successfully finds all of the libraries, it will
+   write Makefiles to the build directory.  When CMake
+   completes, execute 'make' in the build directory to compile
+   OpenVSP.
+
+  -Windows / Visual Studio
+
+   All of the supporting libraries and code described above in
+   DEPENDENCIES must be properly installed.
+
+   The OpenNURBS library must be compiled before OpenVSP can be
+   built.  OpenNURBS comes with Visual Studio solution files
+   ('opennurbs.sln' or 'opennurbs_vs2005.sln') which are used to
+   build the library.  In Visual Studio, build the 'staticlib'
+   project.
+
+   The libjpeg source should be unzipped into a convienent
+   location such as 'openvsp/src' creating the
+   'openvsp/src/jpeg-8c' directory.  Edit the 'CMAKE_PREFIX_PATH'
+   list in 'openvsp/src/CMakeLists.txt' to include the paths
+   to the libjpeg library.
+
+   Libjpeg is configured from the Visual Studio command prompt
+   according to the instructions supplied with it.  It can be
+   built at the command prompt or from Visual Studio.
+
+   The Visual Studio project generally creates 'jpeg.lib' while
+   the nmake Makefile creates 'libjpeg.lib'.  The CMake search
+   will look for 'jpeg.lib', so be sure the result is properly
+   named.
+
+   Building FLTK with project files generated by CMake (rather
+   than those distributed with FLTK) allows better integration
+   with the OpenVSP build system.  Follow the FLTK instructions
+   to build FLTK according to the CMake instructions.  Once
+   FLTK is built, use the 'INSTALL' project to install FLTK
+   to 'C:\Program Files\FLTK'.  If an alternate directory is
+   desired, it can be entered in the CMake GUI when the build
+   files are created.  Edit the 'openvsp/vsp/CMakeLists.txt'
+   to ensure that the FLTK install path is included in the
+   'CMAKE_PREFIX_PATH' list.
+
+   The Libxml2 source should be unzipped somewhere outside the
+   OpenVSP source tree.  Follow the supplied instructions to
+   build Libxml2.  Edit the 'openvsp/src/CMakeLists.txt'
+   file and modify the directory list 'CMAKE_PREFIX_PATH' to
+   include the libxml install destination.
+
+   The 2.7.8 version of the build files contain a small error.
+   Remove the leading '+' characters from lines 74-76 of the
+   'libxml/win32/Makefile.msvc' file.
+
+   If you are using Visual Studio 2010 or newer, remove the
+   '/OPT:NOWIN98' from line 97 of the 'libxml/win32/Makefile.msvc'
+   file.
+
+   The iconv option must be disabled when building Libxml2.
+   This is done by passing 'iconv=no' to the 'cscript' command
+   when you configure Libxml2.  Do not use the pre-compiled
+   Libxml2 libraries available online, they include support for
+   iconv and zlib which introduce unneeded dependencies.
+
+   If you want to link the static library for Libxml2 into OpenVSP,
+   then rename 'lib/libxml2_a.lib' to 'lib/libxml2.lib'.  The other
+   files located in the 'lib' directory may be deleted.
+
+   Next, CMake is used to construct the build files for OpenVSP
+   itself.  CMake supports out-of-tree builds which keep the source
+   tree free of generated files.  Using the CMake GUI, choose
+   'openvsp/src/CMakeLists.txt' and select an appropriate build
+   directory.  Configure CMake and generate the build files.
+
+   CMake will search for Libxml2, libjpeg, and FLTK in the paths
+   specified in the 'CMAKE_PREFIX_PATH' list in
+   '/openvsp/src/CMakeLists.txt'.
+
+   When CMake successfully finds all of the libraries, it will
+   write the project files to the build directory.  When CMake
+   completes, open the 'vsp.sln' in Visual Studio.  Make sure to
+   select the target (Debug or Release) which maches the target
+   used to build OpenNURBS and other libraries.  Once the correct
+   target is chosen, build OpenVSP.
+"
